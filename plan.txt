@@ -1,0 +1,44 @@
+MEMBUAT WHAT'S APP CLONE
+
+Fitur utama:
+- akun (username, password, nickname)
+- melakukan chating dengan sebuah akun
+- membuat sebuah grub yang berisi beberapa akun
+
+Fitur masa depan:
+- story
+- chanel
+
+Eksekusi:
+setelah user membuat sebuah akun, maka user dapat melihat daftar user lainnya yang sudah terdaftar untuk di ajak chating (Membuat room). setelah membuat pertemanan, maka akan dibuat sebuah room yang berisi user A dan user B. untuk grub saat user membuat grub maka akan dibuat sebuah room yang berisi anggota grub. si pembuat grub dapat menginvite user lain untuk masuk kedalam grub yang telah dia buat.
+
+Teknologi yang digunakan:
+- express js
+- socket.io
+- react js
+- database (mungkin bisa menggunakan sqlite & sqlite3, mongodb, redis, atau sql)
+
+# Fitur cari teman
+1. saat user memilih opsi pilih teman, bagian kanan halaman akan menampilkan list 15 user lain yang bisa di mintai pertemanan. user juga bisa melihat halaman selanjutnya untuk melihat user lain (mirip dengan fitur melihat daftar user di projek sistem manajemen siswa ) BAtal karea tidak relevan.
+
+2. client akan melakukan request ke server untuk mendapatkan list user yang bisa di mintai pertemanan. jika ada yang sudah dimintai pertemanan maka tulisan pada tombol untuk meminta pertemanan akan menjadi "Sedang diminta". kalau sudah di terima akan berubah menjadi "Teman". Berarti ini perlu membuat sebuah property yang menyimpan data id user yang meminta pertemanan, jika sudah di acc id user tersebut akan dimasukan kedalam daftar teman user bersangkutan lalu server akan membuat data grub socket baru dengan nama id user dari A dan id dari user B lalu meyimpannya kedalam db.
+
+berarti perlu beberapa properti tambahan 
+- daftar teman. ini berupa id
+- user yang memintan pertemanan
+- user yang dimintai pertemanan (untuk mengatur status user di fe)
+- user yang di blacklist
+
+perlu endpoint untuk menghandle saat user meminta pertemanan 
+
+3. akan ada opsi melihat daftar permintaan pertemanan di menu. berarti akan ada endpoint untuk melihat daftar user yang meminta pertemanan dan endpoint untuk menerima, menolak dan memasukan user tersebut ke blacklist
+
+# Fitur Chating
+fitur chating ini bekerja dengan melihat list grub socket yang dimiliki oleh user bersangkutan. berarti client akan merequest ke server untuk mendapatkan daftar grub socket. saat user menekan salah satu dari daftar chat list maka bagian main section akan berubah ke mode chating degan menampilkan pesan-pesan yang tersimpan milik grub socket tersebut. user juga bisa mengirim pesan ke grub soket tersebut (fitur nya sama dengan chatingan WA).
+
+saat user menekan chat ini maka client akan melakukan req ke server untuk mendapatkan daftar pesan yang dimiliki oleh grub socket dari chat ini. saat yang sama user akan masuk kedalam room socket dengan nama grub socket tersebut 
+
+# Fitur grub
+sama aja dengan fitur chating namun ini anggota grub socketnya lebih dari 2
+
+# Untuk fitur notifikasi ketiak adapesan yang belum dibaca masih belum ketemu caranya
