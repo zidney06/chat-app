@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const baseUrl = import.meta.env.VITE_BASE_URL;
+const url = window.location.href;
+const baseUrl = url.slice(0, -1);
 
 export const getFetch = async (url) => {
   const token = sessionStorage.getItem("waclone-token");
